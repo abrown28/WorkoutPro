@@ -7,5 +7,5 @@ import { _ } from 'lodash';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app works! yay';
+  title = 'This is going well';
 }
