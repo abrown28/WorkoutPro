@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { _ } from 'lodash';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.pug',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'app works! yay';
 }
