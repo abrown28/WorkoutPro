@@ -1,5 +1,6 @@
 const path = require('path');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
@@ -295,6 +296,14 @@ module.exports = {
       "exclude": [],
       "tsConfigPath": "src/tsconfig.app.json",
       "skipCodeGeneration": true
+    }),
+    new ProvidePlugin({   
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery'
+    }),
+    new ProvidePlugin({   
+        Tether: 'Tether'
     })
   ],
   "node": {
