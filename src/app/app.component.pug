@@ -1,25 +1,5 @@
-app-header
+app-header([Title]="title")
 .container
   .row
     .col-sm
-      h2 {{title}}
-      ul
-        li(*ngFor="let exercise of exercises", (click)="onSelect(exercise)")
-          |{{ exercise.name }}
-
-      .workout Workout 3/12/2017
-        ol
-          li Benchpress
-            ol
-              li Set 1 8 x 120lbs
-              li Set 2 8 x 120lbs
-              li Set 3 6 x 120lbs
-              li Set 4 5 x 120lbs
-              li Set 5 5 x 120lbs
-          li Squat
-            ol
-              li Set 1 8 x 120lbs
-              li Set 2 8 x 120lbs
-              li Set 3 6 x 120lbs
-              li Set 4 5 x 120lbs
-              li Set 5 5 x 120lbs
+      router-outlet

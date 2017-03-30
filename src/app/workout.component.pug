@@ -1,0 +1,3 @@
+ul.workouts
+  li(*ngFor="let workout of workouts", [routerLink]="['/workout', workout.id]")
+    |{{ workout.date }}

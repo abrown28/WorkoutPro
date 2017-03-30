@@ -297,12 +297,10 @@ module.exports = {
       "tsConfigPath": "src/tsconfig.app.json",
       "skipCodeGeneration": true
     }),
-    new ProvidePlugin({   
+    new ProvidePlugin({
         jQuery: 'jquery',
         $: 'jquery',
-        jquery: 'jquery'
-    }),
-    new ProvidePlugin({   
+        jquery: 'jquery',
         Tether: 'Tether'
     })
   ],
