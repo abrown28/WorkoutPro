@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-import { _ } from 'lodash';
-
-import { Workout } from './class/Workout';
-import { WorkoutService } from './workout.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +7,9 @@ import { WorkoutService } from './workout.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Workout Pro';
+  title = environment.title;
+  
+  constructor() {
+    //if(!environment.cordova)
+  }
 }

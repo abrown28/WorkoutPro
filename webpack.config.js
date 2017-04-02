@@ -16,7 +16,17 @@ const entryPoints = ["inline","polyfills","sw-register","styles","vendor","main"
 const baseHref = "";
 const deployUrl = "";
 
-
+switch(process.env.NODE_ENV) {
+  default:
+    ENVIRONMENT = 'environments/environment.dev.ts';
+    break;
+  case "production":
+    ENVIRONMENT = 'environments/environment.prod.ts';
+    break;
+  case "cordova":
+    ENVIRONMENT = 'environments/environment.cordova.ts';
+    break;
+}
 
 
 module.exports = {
@@ -135,13 +145,13 @@ module.exports = {
         ],
         "test": /\.css$/,
         "loaders": ExtractTextPlugin.extract({
-  "use": [
-    "css-loader?{\"sourceMap\":false,\"importLoaders\":1}",
-    "postcss-loader"
-  ],
-  "fallback": "style-loader",
-  "publicPath": ""
-})
+          "use": [
+            "css-loader?{\"sourceMap\":false,\"importLoaders\":1}",
+            "postcss-loader"
+          ],
+          "fallback": "style-loader",
+          "publicPath": ""
+        })
       },
       {
         "include": [
@@ -149,29 +159,29 @@ module.exports = {
         ],
         "test": /\.scss$|\.sass$/,
         "loaders": ExtractTextPlugin.extract({
-  "use": [
-    "css-loader?{\"sourceMap\":false,\"importLoaders\":1}",
-    "postcss-loader",
-    "sass-loader"
-  ],
-  "fallback": "style-loader",
-  "publicPath": ""
-})
+          "use": [
+            "css-loader?{\"sourceMap\":false,\"importLoaders\":1}",
+            "postcss-loader",
+            "sass-loader"
+          ],
+          "fallback": "style-loader",
+          "publicPath": ""
+        })
       },
       {
         "include": [
           path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.less$/,
-        "loaders": ExtractTextPlugin.extract({
-  "use": [
-    "css-loader?{\"sourceMap\":false,\"importLoaders\":1}",
-    "postcss-loader",
-    "less-loader"
-  ],
-  "fallback": "style-loader",
-  "publicPath": ""
-})
+         "loaders": ExtractTextPlugin.extract({
+          "use": [
+            "css-loader?{\"sourceMap\":false,\"importLoaders\":1}",
+            "postcss-loader",
+            "less-loader"
+          ],
+          "fallback": "style-loader",
+          "publicPath": ""
+        })
       },
       {
         "include": [
@@ -179,14 +189,14 @@ module.exports = {
         ],
         "test": /\.styl$/,
         "loaders": ExtractTextPlugin.extract({
-  "use": [
-    "css-loader?{\"sourceMap\":false,\"importLoaders\":1}",
-    "postcss-loader",
-    "stylus-loader?{\"sourceMap\":false,\"paths\":[]}"
-  ],
-  "fallback": "style-loader",
-  "publicPath": ""
-})
+          "use": [
+            "css-loader?{\"sourceMap\":false,\"importLoaders\":1}",
+            "postcss-loader",
+            "stylus-loader?{\"sourceMap\":false,\"paths\":[]}"
+          ],
+          "fallback": "style-loader",
+          "publicPath": ""
+        })
       },
       {
         "test": /\.ts$/,
@@ -291,18 +301,31 @@ module.exports = {
     new AotPlugin({
       "mainPath": "main.ts",
       "hostReplacementPaths": {
-        "environments/environment.ts": "environments/environment.ts"
+        "environments/environment.ts": ENVIRONMENT
       },
       "exclude": [],
       "tsConfigPath": "src/tsconfig.app.json",
       "skipCodeGeneration": true
     }),
     new ProvidePlugin({
-        jQuery: 'jquery',
-        $: 'jquery',
-        jquery: 'jquery',
-        Tether: 'Tether'
-    })
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+      Tether: "tether",
+      "window.Tether": "tether",
+      Tooltip: "exports?Tooltip!bootstrap/js/dist/tooltip",
+      Alert: "exports?Alert!bootstrap/js/dist/alert",
+      Button: "exports?Button!bootstrap/js/dist/button",
+      Carousel: "exports?Carousel!bootstrap/js/dist/carousel",
+      Collapse: "exports?Collapse!bootstrap/js/dist/collapse",
+      Dropdown: "exports?Dropdown!bootstrap/js/dist/dropdown",
+      Modal: "exports?Modal!bootstrap/js/dist/modal",
+      Popover: "exports?Popover!bootstrap/js/dist/popover",
+      Scrollspy: "exports?Scrollspy!bootstrap/js/dist/scrollspy",
+      Tab: "exports?Tab!bootstrap/js/dist/tab",
+      Tooltip: "exports?Tooltip!bootstrap/js/dist/tooltip",
+      Util: "exports?Util!bootstrap/js/dist/util",
+    }),
   ],
   "node": {
     "fs": "empty",
