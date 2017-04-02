@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Workout } from './class/Workout';
+import { Workout } from '../../classes/workout';
 
 @Component({
   selector: 'workout-detail',

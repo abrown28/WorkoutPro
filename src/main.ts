@@ -1,6 +1,6 @@
 import 'jquery/dist/jquery.min.js';
 import 'tether/dist/js/tether.min.js';
-import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/js/bootstrap.js';
 
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';

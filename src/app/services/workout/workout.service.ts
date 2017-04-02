@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Workout } from './class/workout';
-import { WORKOUTS } from './mocks/workout.mock';
+import { Workout } from '../../classes/workout';
+import { WORKOUTS } from '../../mocks/workout.mock';
 
 @Injectable()
 export class WorkoutService {

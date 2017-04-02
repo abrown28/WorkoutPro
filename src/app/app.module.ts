@@ -1,16 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { APP_BASE_HREF } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 
 import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HeaderComponent } from './header.component';
-import { WorkoutComponent } from './workout.component';
-import { WorkoutDetailComponent } from './workout-detail.component';
-import { WorkoutService } from './workout.service';
+import { HeaderComponent } from './components/header/header.component';
+import { WorkoutComponent } from './components/workout/workout.component';
+import { WorkoutDetailComponent } from './components/workout-detail/workout-detail.component';
+import { WorkoutService } from './services/workout/workout.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { WorkoutService } from './workout.service';
     ])
   ],
   providers: [
-    WorkoutService
+    WorkoutService,
+    {provide: APP_BASE_HREF, useValue : '/' }
   ],
   bootstrap: [AppComponent]
 })
