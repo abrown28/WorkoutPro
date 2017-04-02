@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { _ } from 'lodash';
-
 import { Workout } from './class/Workout';
 import { WorkoutService } from './workout.service';
 
