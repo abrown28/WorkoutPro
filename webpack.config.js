@@ -244,7 +244,7 @@ module.exports = {
         else {
             return 0;
         }
-    }
+      }
     }),
     new BaseHrefWebpackPlugin({}),
     new CommonsChunkPlugin({

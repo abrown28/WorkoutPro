@@ -14,4 +14,9 @@ export class WorkoutService {
       setTimeout(() => resolve(this.getWorkouts()), 5000);
     });
   }
+
+  getWorkout(id: number): Promise<Workout> {
+    return this.getWorkouts()
+      .then(workouts => workouts.find(workout => workout.id === id));
+  }
 }

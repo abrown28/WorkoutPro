@@ -2,13 +2,16 @@
   nav.navbar.navbar-light.bg-faded.rounded.navbar-toggleable-md
     button.navbar-toggler.navbar-toggler-right(type="button" data-toggle="collapse" data-target="#containerNavbar" aria-controls="containerNavbar"  aria-expanded="false" aria-label="Toggle navigation")
       span.navbar-toggler-icon
-    a.navbar-brand(href="#") {{ title }}
+    a.navbar-brand(routerLink="/") {{ title }}
 
     #containerNavbar.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
-        li.nav-item: a.nav-link(href="/start") Start
-          //span.sr-only (current)
-        li.nav-item: a.nav-link(routerLink="/workouts") History
+        li.nav-item(routerLinkActive="active", [routerLinkActiveOptions]="{exact: true}", #rla="routerLinkActive")
+          a.nav-link(routerLink="/workout/12") Start
+            | {{ rla.isActive ? '(already open)' : ''}}
+        li.nav-item(routerLinkActive="active", [routerLinkActiveOptions]="{exact: true}", #rla="routerLinkActive")
+          a.nav-link(routerLink="/workouts", RouterLinkActive="active") History
+            | {{ rla.isActive ? '(already open)' : ''}}
       form.form-inline.my-2.my-md-0
         input.form-control.mr-sm-2(type="text" placeholder="Search")
         button.btn.btn-outline-success.my-2.my-sm-0(type="submit") Search
