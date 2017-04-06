@@ -5,3 +5,5 @@ export class Workout {
   date: any;
   sets: Set[];
 }
+
+export var wo = new Workout();
